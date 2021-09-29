@@ -1,22 +1,18 @@
-#Core Pkgs
+
 import streamlit as st
+from multiapp import MultiApp
+import home
+from classification import ClassificationMain
+#from clustering import main
+ # import your app modules here
 
-# EDA Pkgs
-import pandas as pd
-import numpy as np
+app = MultiApp()
 
-# Utils
-import os
-import joblib
+# Add all your application here
+app.add_app("Home", home.app)
+app.add_app("Predict Loan Risk", ClassificationMain.main)
+#app.add_app("Clustering",main)
 
-# Data Viz Pkgs
-import matplotlib.pyplot as plt
-import matplotlib
-
-
-def main():
-    st.title("Fuck you man")
-
-
-if __name__ == '__main__':
-    main()
+#app.add_app("Model", model.app)
+# The main app
+app.run()
