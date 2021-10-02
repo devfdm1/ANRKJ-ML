@@ -18,3 +18,4 @@ app.add_app("Bank Marketing Analysis", ClusteringMain.main)
 #app.add_app("Model", model.app)
 # The main app
 app.run()
+

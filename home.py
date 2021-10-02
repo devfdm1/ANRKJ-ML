@@ -1,6 +1,6 @@
 import streamlit as st
 
 def app():
-    st.title("Leo Banking App")
+    st.title("Leo Bank Machine Learning Solution")
     st.image("resources/loan-review-risk.jpg")
     
