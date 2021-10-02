@@ -53,9 +53,16 @@ def prediction(input_df):
     
     prediction = RandomForestClassifier.predict(inputs_for_prediction)
     
-    st.write(input_df)
+    accuracy = ((train_score + val_score) / 2) * 100
     
-    st.write(prediction)
+    if prediction == 0:
+        st.success("Lending the loan for the customer is not risky")
+    else:
+        st.warning("Lending the loan for the customer is risky")
+        
+    st.write("Accuracy of the prediction : {}".format(accuracy))
+    
+  
     
     
 def get_user_input():
@@ -78,8 +85,6 @@ def get_user_input():
     submitButton = form.form_submit_button(label ='Predict Loan Grant Risk')
 
     if submitButton:
-        
-        st.write(purpose)
         SingleUserInput = {
             'employment_years':employment_years,
             'annual_inc':annual_inc,
@@ -96,7 +101,6 @@ def get_user_input():
             
         }
         
-        st.write(pd.DataFrame([SingleUserInput]))
         return pd.DataFrame([SingleUserInput])
     
        
