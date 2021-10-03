@@ -111,7 +111,9 @@ def get_user_input():
 def main():
     display()    
     input_details_df = get_user_input()
-    prediction(input_details_df)
+    
+    if input_details_df is not None:
+        prediction(input_details_df)
   
     
     
